@@ -1,1 +1,31 @@
-<p *ngIf="true">Pagina de login!</p>
+<section>
+  <fieldset>
+    <div class="center-container">
+      <po-container>
+        <form>
+            <header>
+                <h1>Boas Vindas!</h1>
+                <h6>Para acessar o sistema informe seu usuário e senha.</h6>
+            </header>
+          <po-email
+            class="po-lg-12"
+            name="email"
+            formControlName="email"
+            [p-auto-focus]="true"
+            p-label="E-mail"
+            p-placeholder="alias@dominio.com"
+          ></po-email>
+          <po-password
+            class="po-lg-12"
+            name="password"
+            formControlName="password"
+            [p-auto-focus]="true"
+            p-label="Senha"
+            p-placeholder="Sua senha tem 1 ou mais caracteres"
+          ></po-password>
+          <po-button class="po-lg-12" p-label="Acessar"></po-button>
+        </form>
+      </po-container>
+    </div>
+  </fieldset>
+</section>
