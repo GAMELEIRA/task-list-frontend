@@ -14,14 +14,15 @@
             [p-auto-focus]="true"
             p-label="E-mail"
             p-placeholder="alias@dominio.com"
+            [p-no-autocomplete]="false"
           ></po-email>
           <po-password
             class="po-lg-12"
             name="password"
             formControlName="password"
-            [p-auto-focus]="true"
             p-label="Senha"
             p-placeholder="Sua senha tem 1 ou mais caracteres"
+            [p-no-autocomplete]="false"
           ></po-password>
           <po-button class="po-lg-12" p-label="Acessar"></po-button>
         </form>
