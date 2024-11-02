@@ -5,16 +5,15 @@ import {
   PoContainerModule,
   PoFieldModule,
 } from '@po-ui/ng-components';
-import { RouterService } from '../../shared/services/router/routrer.service';
+import { RouterService } from '../../../shared/services/router/routrer.service';
 
 @Component({
-  selector: 'app-auth',
+  selector: 'app-create-auth',
   standalone: true,
   imports: [CommonModule, PoFieldModule, PoButtonModule, PoContainerModule],
-  providers: [RouterService],
-  templateUrl: './auth.component.html',
-  styleUrl: './auth.component.scss',
+  templateUrl: './create-auth.component.html',
+  styleUrls: ['./create-auth.component.scss'],
 })
-export class AuthComponent {
+export class CreateAuthComponent {
   constructor(public routerService: RouterService) {}
 }

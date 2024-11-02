@@ -1,0 +1,74 @@
+<nav class="navbar">
+  <po-button
+    p-icon="ph ph-arrow-bend-down-left"
+    (p-click)="routerService.navigateToPage('auth')"
+  ></po-button>
+</nav>
+<main>
+  <section class="container">
+    <div class="center-container">
+      <po-container>
+        <form>
+          <header>
+            <h1>Cadastra-se no Task List!</h1>
+            <h6>
+              Para acessar o sistema você deve ter um cadastro no nosso sistema.
+              <br />
+              Informe os dados solicitados para acessar.
+            </h6>
+          </header>
+          <po-input
+            class="po-lg-6"
+            name="username"
+            formControlName="username"
+            p-label="Primeiro Nome"
+            p-placeholder="Primeiro Nome"
+            p-auto-focus="true"
+            [p-no-autocomplete]="false"
+            p-required="true"
+            p-error-message="Primeiro Nome é obrigatório"
+          >
+          </po-input>
+          <po-input
+            class="po-lg-6"
+            name="lastname"
+            formControlName="lastname"
+            p-label="Último Nome"
+            p-placeholder="Último Nome"
+            [p-no-autocomplete]="false"
+            p-required="true"
+            p-error-message="Último Nome Usuário é obrigatório"
+          >
+          </po-input>
+          <po-email
+            class="po-lg-12"
+            name="email"
+            formControlName="email"
+            [p-auto-focus]="false"
+            p-label="E-mail"
+            p-placeholder="alias@dominio.com"
+            [p-no-autocomplete]="false"
+          ></po-email>
+          <po-password
+            class="po-lg-12"
+            name="password"
+            formControlName="password"
+            p-label="Senha"
+            p-placeholder="Sua senha deve ter 1 ou mais caracteres"
+            [p-no-autocomplete]="false"
+          ></po-password>
+          <po-password
+            class="po-lg-12"
+            name="password"
+            formControlName="password"
+            p-label="Confirmar Senha"
+            p-placeholder="Sua senha deve ter 1 ou mais caracteres"
+            [p-no-autocomplete]="false"
+          ></po-password>
+          <po-button class="po-lg-12" p-label="Acessar"></po-button>
+        </form>
+        <div></div>
+      </po-container>
+    </div>
+  </section>
+</main>

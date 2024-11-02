@@ -1,12 +1,12 @@
-<section>
-  <fieldset>
+<main>
+  <section class="container">
     <div class="center-container">
       <po-container>
         <form>
-            <header>
-                <h1>Boas Vindas!</h1>
-                <h6>Para acessar o sistema informe seu usuário e senha.</h6>
-            </header>
+          <header>
+            <h1>Boas Vindas, ao Task List!</h1>
+            <h6>Para acessar o sistema informe seu usuário e senha.</h6>
+          </header>
           <po-email
             class="po-lg-12"
             name="email"
@@ -25,8 +25,17 @@
             [p-no-autocomplete]="false"
           ></po-password>
           <po-button class="po-lg-12" p-label="Acessar"></po-button>
+          <div>
+            <po-button
+              id="create-account"
+              class="po-lg-4"
+              (click)="routerService.navigateToPage('auth/create-account')"
+              p-label=" Cadastrar-se"
+            >
+            </po-button>
+          </div>
         </form>
       </po-container>
     </div>
-  </fieldset>
-</section>
+  </section>
+</main>

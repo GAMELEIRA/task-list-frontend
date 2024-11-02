@@ -1,16 +1,37 @@
 header {
-    margin: 8px;
+  margin: 8px;
+}
+
+.navbar {
+  width: 100%;
+  height: 10%;
+  display: block;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
 }
 
 .center-container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
-    display: block;
+  display: block;
+}
+
+.spacing-item {
+  margin: 8px;
+  padding: 8px;
 }
