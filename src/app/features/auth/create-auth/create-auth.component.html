@@ -8,7 +8,7 @@
   <section class="container">
     <div class="center-container">
       <po-container>
-        <form>
+        <form [formGroup]="reactiveForm">
           <header>
             <h1>Cadastra-se no Task List!</h1>
             <h6>
@@ -19,8 +19,8 @@
           </header>
           <po-input
             class="po-lg-6"
-            name="username"
-            formControlName="username"
+            name="name"
+            formControlName="name"
             p-label="Primeiro Nome"
             p-placeholder="Primeiro Nome"
             p-auto-focus="true"
@@ -31,8 +31,8 @@
           </po-input>
           <po-input
             class="po-lg-6"
-            name="lastname"
-            formControlName="lastname"
+            name="lastName"
+            formControlName="lastName"
             p-label="Último Nome"
             p-placeholder="Último Nome"
             [p-no-autocomplete]="false"
@@ -40,32 +40,38 @@
             p-error-message="Último Nome Usuário é obrigatório"
           >
           </po-input>
-          <po-email
-            class="po-lg-12"
-            name="email"
-            formControlName="email"
-            [p-auto-focus]="false"
-            p-label="E-mail"
-            p-placeholder="alias@dominio.com"
-            [p-no-autocomplete]="false"
-          ></po-email>
-          <po-password
-            class="po-lg-12"
-            name="password"
-            formControlName="password"
-            p-label="Senha"
-            p-placeholder="Sua senha deve ter 1 ou mais caracteres"
-            [p-no-autocomplete]="false"
-          ></po-password>
-          <po-password
-            class="po-lg-12"
-            name="password"
-            formControlName="password"
-            p-label="Confirmar Senha"
-            p-placeholder="Sua senha deve ter 1 ou mais caracteres"
-            [p-no-autocomplete]="false"
-          ></po-password>
-          <po-button class="po-lg-12" p-label="Acessar"></po-button>
+          <div formGroupName="credential">
+            <po-email
+              class="po-lg-12"
+              name="email"
+              formControlName="email"
+              [p-auto-focus]="false"
+              p-label="E-mail"
+              p-placeholder="alias@dominio.com"
+              [p-no-autocomplete]="false"
+            ></po-email>
+            <po-password
+              class="po-lg-12"
+              name="password"
+              formControlName="password"
+              p-label="Senha"
+              p-placeholder="Sua senha deve ter 1 ou mais caracteres"
+              [p-no-autocomplete]="false"
+            ></po-password>
+            <po-password
+              class="po-lg-12"
+              name="password"
+              formControlName="password"
+              p-label="Confirmar Senha"
+              p-placeholder="Sua senha deve ter 1 ou mais caracteres"
+              [p-no-autocomplete]="false"
+            ></po-password>
+            <po-button
+              class="po-lg-12"
+              p-label="Cadastrar"
+              (p-click)="requestCreateAccount()"
+            ></po-button>
+          </div>
         </form>
         <div></div>
       </po-container>
