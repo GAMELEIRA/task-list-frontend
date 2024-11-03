@@ -10,6 +10,8 @@ import {
   PoButtonModule,
   PoContainerModule,
   PoFieldModule,
+  PoLoadingModule,
+  PoNotificationService,
 } from '@po-ui/ng-components';
 import { RouterService } from '../../../shared/services/router/routrer.service';
 import { AuthService } from '../auth.service';
@@ -23,27 +25,42 @@ import { AuthService } from '../auth.service';
     PoButtonModule,
     PoContainerModule,
     ReactiveFormsModule,
+    PoLoadingModule,
   ],
   templateUrl: './create-auth.component.html',
   styleUrls: ['./create-auth.component.scss'],
 })
 export class CreateAuthComponent {
   public reactiveForm!: UntypedFormGroup;
+  public loading = false;
 
   constructor(
     public routerService: RouterService,
     private authService: AuthService,
-    private fb: UntypedFormBuilder
+    private fb: UntypedFormBuilder,
+    public poNotification: PoNotificationService
   ) {
     this.createReactiveForm();
   }
 
   public requestCreateAccount(): void {
-    const user = {
-      user: this.reactiveForm.value,
-    };
-    console.log(user);
-    this.authService.createAccount(user);
+    this.loading = true;
+    const user = this.reactiveForm.value;
+    this.authService.createAccount(user).subscribe(
+      (account) => {
+        this.poNotification.success('Sua conta foi cadastrada com sucesso!');
+        this.routerService.navigateToPage('/auth');
+      },
+      (error) => {
+        console.log(error);
+        this.poNotification.error(
+          `Não foi cadastrar sua conta! Contate o administrador do sistema informando o erro: ${error.message}`
+        );
+      },
+      () => {
+        this.loading = false;
+      }
+    );
   }
 
   public createReactiveForm = (): void => {

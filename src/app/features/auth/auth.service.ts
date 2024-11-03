@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { PRODUCTION_URL } from '../../enviroment';
 import { CreateUser } from '../../shared/models/create-user.model';
 
@@ -12,10 +13,8 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public createAccount = (body: CreateUser): void => {
+  public createAccount = (body: CreateUser): Observable<any> => {
     console.log(body, this.CREATE_ACCOUNT_URL);
-    this.httpClient.post(this.CREATE_ACCOUNT_URL, body).subscribe((res) => {
-      console.log(res);
-    });
+    return this.httpClient.post(this.CREATE_ACCOUNT_URL, body);
   };
 }
