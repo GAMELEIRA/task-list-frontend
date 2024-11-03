@@ -2,7 +2,7 @@
   <section class="container">
     <div class="center-container">
       <po-container>
-        <form>
+        <form [formGroup]="reactiveForm">
           <header>
             <h1>Boas Vindas, ao Task List!</h1>
             <h6>Para acessar o sistema informe seu usuário e senha.</h6>
@@ -24,7 +24,11 @@
             p-placeholder="Sua senha tem 1 ou mais caracteres"
             [p-no-autocomplete]="false"
           ></po-password>
-          <po-button class="po-lg-12" p-label="Acessar"></po-button>
+          <po-button
+            class="po-lg-12"
+            p-label="Acessar"
+            (click)="requestLogin()"
+          ></po-button>
           <div>
             <po-button
               id="create-account"
@@ -39,3 +43,4 @@
     </div>
   </section>
 </main>
+<po-loading-overlay *ngIf="loading"></po-loading-overlay>

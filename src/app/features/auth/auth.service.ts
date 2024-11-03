@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PRODUCTION_URL } from '../../enviroment';
-import { CreateUser } from '../../shared/models/create-user.model';
+import { User } from '../../shared/models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +13,11 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public createAccount = (body: CreateUser): Observable<any> => {
-    console.log(body, this.CREATE_ACCOUNT_URL);
+  public createAccount = (body: User): Observable<any> => {
     return this.httpClient.post(this.CREATE_ACCOUNT_URL, body);
+  };
+
+  public login = (body: Credential): Observable<any> => {
+    return this.httpClient.post(this.URL_BASE, body);
   };
 }

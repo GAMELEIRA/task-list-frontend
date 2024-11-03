@@ -46,21 +46,21 @@ export class CreateAuthComponent {
   public requestCreateAccount(): void {
     this.loading = true;
     const user = this.reactiveForm.value;
-    this.authService.createAccount(user).subscribe(
-      (account) => {
+    this.authService.createAccount(user).subscribe({
+      next: (account) => {
         this.poNotification.success('Sua conta foi cadastrada com sucesso!');
         this.routerService.navigateToPage('/auth');
       },
-      (error) => {
+      error: (error) => {
         console.log(error);
         this.poNotification.error(
           `Não foi cadastrar sua conta! Contate o administrador do sistema informando o erro: ${error.message}`
         );
       },
-      () => {
+      complete: () => {
         this.loading = false;
-      }
-    );
+      },
+    });
   }
 
   public createReactiveForm = (): void => {
