@@ -1,0 +1,46 @@
+<main>
+  <section class="container">
+    <div class="center-container">
+      <po-container>
+        <form [formGroup]="reactiveForm">
+          <header>
+            <h1>Boas Vindas, ao Task List!</h1>
+            <h6>Para acessar o sistema informe seu usuário e senha.</h6>
+          </header>
+          <po-email
+            class="po-lg-12"
+            name="email"
+            formControlName="email"
+            [p-auto-focus]="true"
+            p-label="E-mail"
+            p-placeholder="alias@dominio.com"
+            [p-no-autocomplete]="false"
+          ></po-email>
+          <po-password
+            class="po-lg-12"
+            name="password"
+            formControlName="password"
+            p-label="Senha"
+            p-placeholder="Sua senha tem 1 ou mais caracteres"
+            [p-no-autocomplete]="false"
+          ></po-password>
+          <po-button
+            class="po-lg-12"
+            p-label="Acessar"
+            (click)="requestLogin()"
+          ></po-button>
+          <div>
+            <po-button
+              id="create-account"
+              class="po-lg-4"
+              (click)="routerService.navigateToPage('auth/create-account')"
+              p-label=" Cadastrar-se"
+            >
+            </po-button>
+          </div>
+        </form>
+      </po-container>
+    </div>
+  </section>
+</main>
+<po-loading-overlay *ngIf="loading"></po-loading-overlay>

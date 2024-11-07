@@ -1,0 +1,32 @@
+<main>
+  <div *ngFor="let item of tasks">
+    <po-widget
+      class="po-lg-12"
+      [p-height]="300"
+      [p-title]="item.title"
+      p-primary-label="Ver detalhes"
+      (p-primary-action)="showDetail()"
+    >
+      <section style="width: 100%">
+        <div>
+          <strong>ID:</strong>
+          <p>{{ item.id }}</p>
+        </div>
+        <div>
+          <strong>Categoria:</strong>
+          <p>{{ item.category }}</p>
+        </div>
+        <div class="field" style="display: flex; justify-content: between">
+          <div class="field">
+            <strong>Data da Criação:</strong>
+            <p>{{ item.creationDate }}</p>
+          </div>
+          <div class="field">
+            <strong>Data de Finalização:</strong>
+            <p>{{ item.deadline }}</p>
+          </div>
+        </div>
+      </section>
+    </po-widget>
+  </div>
+</main>
