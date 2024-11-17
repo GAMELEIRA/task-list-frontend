@@ -1,4 +1,8 @@
 <main>
+  <header class="navbar"></header>
+  <section class="container center-container">
+    <p *ngIf="!tasks.length">Não há tarefas pendentes</p>
+  </section>
   <div *ngFor="let item of tasks">
     <po-widget
       class="po-lg-12"
