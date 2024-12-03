@@ -9,6 +9,7 @@ import {
   PoLoadingModule,
   PoWidgetModule,
 } from '@po-ui/ng-components';
+import { DatePipe } from '../../shared/pipes/date/date.pipe';
 import { RouterService } from '../../shared/services/router/routrer.service';
 import { Task } from './models/task.model';
 import { TaskService } from './task.service';
@@ -25,6 +26,7 @@ import { TaskService } from './task.service';
     PoLoadingModule,
     PoWidgetModule,
     PoInfoModule,
+    DatePipe,
   ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',

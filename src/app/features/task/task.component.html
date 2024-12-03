@@ -1,7 +1,6 @@
 <main>
-  <header class="navbar"></header>
-  <section class="container center-container">
-    <p *ngIf="!tasks.length">Não há tarefas pendentes</p>
+  <section *ngIf="!tasks.length" class="container center-container">
+    <p>Não há tarefas pendentes</p>
   </section>
   <div *ngFor="let item of tasks">
     <po-widget
@@ -23,11 +22,11 @@
         <div class="field" style="display: flex; justify-content: between">
           <div class="field">
             <strong>Data da Criação:</strong>
-            <p>{{ item.creationDate }}</p>
+            <p>{{ item.creationDate | date }}</p>
           </div>
           <div class="field">
             <strong>Data de Finalização:</strong>
-            <p>{{ item.deadline }}</p>
+            <p>{{ item.deadline | date }}</p>
           </div>
         </div>
       </section>

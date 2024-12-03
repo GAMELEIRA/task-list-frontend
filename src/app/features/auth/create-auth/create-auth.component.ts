@@ -50,12 +50,14 @@ export class CreateAuthComponent {
       next: (account) => {
         this.poNotification.success('Sua conta foi cadastrada com sucesso!');
         this.routerService.navigateToPage('/auth');
+        this.loading = false;
       },
       error: (error) => {
         console.log(error);
         this.poNotification.error(
           `Não foi cadastrar sua conta! Contate o administrador do sistema informando o erro: ${error.message}`
         );
+        this.loading = false;
       },
       complete: () => {
         this.loading = false;
